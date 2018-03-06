@@ -1,0 +1,147 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module density</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>density</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/igor/COED/ewok/moduls/density.py">/home/igor/COED/ewok/moduls/density.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="fort_ewok.html">fort_ewok</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="exchange.html#exchange">exchange.exchange</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="density.html#density_rout">density_rout</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="density_rout">class <strong>density_rout</strong></a>(<a href="exchange.html#exchange">exchange.exchange</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="density_rout-dens2gamma_calcul"><strong>dens2gamma_calcul</strong></a>(self)</dt><dd><tt>1)&nbsp;calculates&nbsp;the&nbsp;'relativistic'&nbsp;particles&nbsp;density&nbsp;(thanx&nbsp;to&nbsp;Rachel&nbsp;for&nbsp;the&nbsp;scheme)<br>
+2)&nbsp;calls&nbsp;routine&nbsp;to&nbsp;<a href="exchange.html#exchange">exchange</a>&nbsp;additional&nbsp;cells&nbsp;at&nbsp;boundaries<br>
+uses&nbsp;Fortran&nbsp;subroutines&nbsp;via&nbsp;f2py&nbsp;interface&nbsp;generator</tt></dd></dl>
+
+<dl><dt><a name="density_rout-dens_calcul"><strong>dens_calcul</strong></a>(self)</dt><dd><tt>1)&nbsp;calculates&nbsp;the&nbsp;particles&nbsp;density&nbsp;(thanx&nbsp;to&nbsp;Rachel&nbsp;for&nbsp;the&nbsp;sub-routine)<br>
+2)&nbsp;calls&nbsp;routine&nbsp;to&nbsp;<a href="exchange.html#exchange">exchange</a>&nbsp;additional&nbsp;cells&nbsp;at&nbsp;boundaries<br>
+uses&nbsp;Fortran&nbsp;subroutines&nbsp;via&nbsp;f2py&nbsp;interface&nbsp;generator</tt></dd></dl>
+
+<dl><dt><a name="density_rout-dens_ion_calcul"><strong>dens_ion_calcul</strong></a>(self)</dt></dl>
+
+<hr>
+Methods inherited from <a href="exchange.html#exchange">exchange.exchange</a>:<br>
+<dl><dt><a name="density_rout-dens_exchange"><strong>dens_exchange</strong></a>(self, dens_2right, dens_2left)</dt><dd><tt>exchanges&nbsp;data&nbsp;of&nbsp;additional&nbsp;cells&nbsp;at&nbsp;boundaries,&nbsp;used&nbsp;for&nbsp;the&nbsp;3rd&nbsp;order&nbsp;interpolation&nbsp;(blocking)</tt></dd></dl>
+
+<dl><dt><a name="density_rout-part_exchange"><strong>part_exchange</strong></a>(self, part_2left, part_2right)</dt><dd><tt><a href="exchange.html#exchange">exchange</a>&nbsp;of&nbsp;the&nbsp;particles&nbsp;between&nbsp;Ewoks&nbsp;(blocking)</tt></dd></dl>
+
+<dl><dt><a name="density_rout-potent_exchange"><strong>potent_exchange</strong></a>(self)</dt><dd><tt><a href="exchange.html#exchange">exchange</a>&nbsp;of&nbsp;e.m.&nbsp;potential&nbsp;between&nbsp;Ewoks&nbsp;(blocking)<br>
+accounts&nbsp;for&nbsp;*x_period*&nbsp;condition&nbsp;for&nbsp;e.m.&nbsp;field</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>EDFx</strong> = 'thermal'<br>
+<strong>EDFy</strong> = 'thermal'<br>
+<strong>M_p</strong> = 1836.1253211<br>
+<strong>N_max</strong> = 377500<br>
+<strong>N_part_full</strong> = 250000<br>
+<strong>Nstat</strong> = 20<br>
+<strong>a0</strong> = 0.0<br>
+<strong>a_bonus</strong> = 0.0<br>
+<strong>a_seed</strong> = 1.8999999999999999<br>
+<strong>asym</strong> = False<br>
+<strong>beam_right</strong> = 10.0<br>
+<strong>beam_top</strong> = 1.0<br>
+<strong>beta</strong> = 0.0<br>
+<strong>bins_x</strong> = 125<br>
+<strong>bins_y</strong> = 151<br>
+<strong>bottom</strong> = -3.0<br>
+<strong>courant</strong> = 1.0<br>
+<strong>delta_ampl</strong> = 0.45<br>
+<strong>delta_freq</strong> = 0.01<br>
+<strong>density_profile</strong> = 'circle'<br>
+<strong>diag_dens</strong> = True<br>
+<strong>diag_field</strong> = True<br>
+<strong>diag_fld</strong> = 1.0<br>
+<strong>diag_phase</strong> = False<br>
+<strong>diag_phs</strong> = 0.0<br>
+<strong>dt</strong> = 0.040000000000000001<br>
+<strong>dx</strong> = 0.040000000000000001<br>
+<strong>dy</strong> = 0.040000000000000001<br>
+<strong>e_charge</strong> = -1.0<br>
+<strong>e_static</strong> = True<br>
+<strong>gamma_ext</strong> = 1.0<br>
+<strong>injection_time</strong> = 0<br>
+<strong>l_x</strong> = 10.0<br>
+<strong>l_y</strong> = 2.0<br>
+<strong>lattice_modif</strong> = False<br>
+<strong>left</strong> = 0.0<br>
+<strong>markID</strong> = 377503<br>
+<strong>marked_coord</strong> = array([[ 3.5],
+       [ 0.9]])<br>
+<strong>marked_veloc</strong> = array([[ 0.],
+       [ 0.]])<br>
+<strong>n_e</strong> = 1.0<br>
+<strong>neutral</strong> = True<br>
+<strong>notification</strong> = False<br>
+<strong>num_node</strong> = 1.0<br>
+<strong>num_part</strong> = 20.0<br>
+<strong>num_steps</strong> = 250<br>
+<strong>origin_x</strong> = 0.0<br>
+<strong>origin_y</strong> = -1.0<br>
+<strong>out_folder</strong> = '../scratch_ewok/test02/'<br>
+<strong>pillow_size</strong> = 20<br>
+<strong>profiles</strong> = ['cosinus', 'flat', 'gauss']<br>
+<strong>pump_unstable</strong> = False<br>
+<strong>ramp_length</strong> = 40.0<br>
+<strong>right</strong> = 5.0<br>
+<strong>seed_angle</strong> = 0.0<br>
+<strong>seed_delay</strong> = 0<br>
+<strong>seed_duration</strong> = 250<br>
+<strong>seed_profile</strong> = 'cosinus'<br>
+<strong>seed_time</strong> = 250<br>
+<strong>seed_width</strong> = 1.0<br>
+<strong>simulation_time</strong> = 10.0<br>
+<strong>snapshots_interval</strong> = 25<br>
+<strong>steps</strong> = 25.0<br>
+<strong>stepwise_step</strong> = 2<br>
+<strong>top</strong> = 3.04<br>
+<strong>tracking</strong> = False<br>
+<strong>user_email</strong> = ['ewok@dark_side.ndr']<br>
+<strong>v_x</strong> = 1e-08<br>
+<strong>v_y</strong> = 1e-08<br>
+<strong>w_bonus</strong> = 0.0<br>
+<strong>w_seed</strong> = 1.0<br>
+<strong>x_particle_absorb</strong> = True<br>
+<strong>x_period</strong> = False<br>
+<strong>y_particle_absorb</strong> = True<br>
+<strong>y_period</strong> = True</td></tr></table>
+</body></html>

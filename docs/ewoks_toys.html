@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ewoks_toys</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ewoks_toys</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/igor/COED/ewok/moduls/ewoks_toys.py">/home/igor/COED/ewok/moduls/ewoks_toys.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="mpi4py.MPI.html">mpi4py.MPI</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="ewoks_toys.html#toys">toys</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="toys">class <strong>toys</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="toys-__init__"><strong>__init__</strong></a>(self, ewok)</dt><dd><tt>gives&nbsp;Ewok&nbsp;his&nbsp;<a href="#toys">toys</a>&nbsp;for&nbsp;signal&nbsp;and&nbsp;pump&nbsp;creation,&nbsp;diagnostics&nbsp;and&nbsp;messaging</tt></dd></dl>
+
+<dl><dt><a name="toys-bonus_pump"><strong>bonus_pump</strong></a>(self, time)</dt><dd><tt>additional&nbsp;wave&nbsp;in&nbsp;the&nbsp;lattice&nbsp;(not&nbsp;used)</tt></dd></dl>
+
+<dl><dt><a name="toys-bye_msg"><strong>bye_msg</strong></a>(self, ewok)</dt><dd><tt>text&nbsp;output&nbsp;message&nbsp;after&nbsp;mainloop&nbsp;with&nbsp;timing&nbsp;and&nbsp;email&nbsp;notification</tt></dd></dl>
+
+<dl><dt><a name="toys-data_output"><strong>data_output</strong></a>(self, ewok, time)</dt><dd><tt>creates&nbsp;2D&nbsp;data&nbsp;output&nbsp;(main&nbsp;output&nbsp;method)</tt></dd></dl>
+
+<dl><dt><a name="toys-diagnostics_full"><strong>diagnostics_full</strong></a>(self, ewok, time)</dt><dd><tt>manager-script&nbsp;for&nbsp;main&nbsp;2D&nbsp;diagnostics:&nbsp;density,&nbsp;phase&nbsp;coordinates,&nbsp;e.m.&nbsp;field,&nbsp;e.static&nbsp;potential</tt></dd></dl>
+
+<dl><dt><a name="toys-diagnostics_stepwise"><strong>diagnostics_stepwise</strong></a>(self, ewok, time)</dt><dd><tt>writing&nbsp;stepwise&nbsp;diagnosics:&nbsp;field&nbsp;and&nbsp;density&nbsp;dynamics&nbsp;at&nbsp;left&nbsp;boundary;&nbsp;probe&nbsp;particle&nbsp;track(trigs&nbsp;the&nbsp;method)</tt></dd></dl>
+
+<dl><dt><a name="toys-get_seed_profile"><strong>get_seed_profile</strong></a>(self)</dt><dd><tt>creates&nbsp;the&nbsp;seed&nbsp;transverse&nbsp;spatial&nbsp;profile</tt></dd></dl>
+
+<dl><dt><a name="toys-pump_func"><strong>pump_func</strong></a>(self, t)</dt><dd><tt>temporal&nbsp;modulations&nbsp;of&nbsp;lattice&nbsp;potential</tt></dd></dl>
+
+<dl><dt><a name="toys-seed"><strong>seed</strong></a>(self, time)</dt><dd><tt>constructs&nbsp;the&nbsp;Fourier&nbsp;image&nbsp;of&nbsp;the&nbsp;signal&nbsp;with&nbsp;defined&nbsp;frequency&nbsp;and&nbsp;profile</tt></dd></dl>
+
+<dl><dt><a name="toys-seed_rotation"><strong>seed_rotation</strong></a>(self)</dt><dd><tt>constructs&nbsp;the&nbsp;rotation&nbsp;multiplier&nbsp;for&nbsp;the&nbsp;signal&nbsp;(doesn't&nbsp;turn&nbsp;the&nbsp;phase&nbsp;front)</tt></dd></dl>
+
+<dl><dt><a name="toys-start_msg"><strong>start_msg</strong></a>(self, ewok)</dt><dd><tt>text&nbsp;output&nbsp;message&nbsp;before&nbsp;mainloop&nbsp;start</tt></dd></dl>
+
+<dl><dt><a name="toys-track_out"><strong>track_out</strong></a>(self, ewok)</dt><dd><tt>writing&nbsp;probe&nbsp;particle&nbsp;track&nbsp;(actual&nbsp;method)</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-system"><strong>system</strong></a>(...)</dt><dd><tt><a href="#-system">system</a>(command)&nbsp;-&gt;&nbsp;exit_status<br>
+&nbsp;<br>
+Execute&nbsp;the&nbsp;command&nbsp;(a&nbsp;string)&nbsp;in&nbsp;a&nbsp;subshell.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>EDFx</strong> = 'thermal'<br>
+<strong>EDFy</strong> = 'thermal'<br>
+<strong>M_p</strong> = 1836.1253211<br>
+<strong>N_max</strong> = 377500<br>
+<strong>N_part_full</strong> = 250000<br>
+<strong>Nstat</strong> = 20<br>
+<strong>a0</strong> = 0.0<br>
+<strong>a_bonus</strong> = 0.0<br>
+<strong>a_seed</strong> = 1.8999999999999999<br>
+<strong>asym</strong> = False<br>
+<strong>beam_right</strong> = 10.0<br>
+<strong>beam_top</strong> = 1.0<br>
+<strong>beta</strong> = 0.0<br>
+<strong>bins_x</strong> = 125<br>
+<strong>bins_y</strong> = 151<br>
+<strong>bottom</strong> = -3.0<br>
+<strong>courant</strong> = 1.0<br>
+<strong>delta_ampl</strong> = 0.45<br>
+<strong>delta_freq</strong> = 0.01<br>
+<strong>density_profile</strong> = 'circle'<br>
+<strong>diag_dens</strong> = True<br>
+<strong>diag_field</strong> = True<br>
+<strong>diag_fld</strong> = 1.0<br>
+<strong>diag_phase</strong> = False<br>
+<strong>diag_phs</strong> = 0.0<br>
+<strong>dt</strong> = 0.040000000000000001<br>
+<strong>dx</strong> = 0.040000000000000001<br>
+<strong>dy</strong> = 0.040000000000000001<br>
+<strong>e_charge</strong> = -1.0<br>
+<strong>e_static</strong> = True<br>
+<strong>exp_src</strong> = &lt;numpy.lib.function_base.vectorize object&gt;<br>
+<strong>gamma_ext</strong> = 1.0<br>
+<strong>injection_time</strong> = 0<br>
+<strong>l_x</strong> = 10.0<br>
+<strong>l_y</strong> = 2.0<br>
+<strong>lattice_modif</strong> = False<br>
+<strong>left</strong> = 0.0<br>
+<strong>markID</strong> = 377503<br>
+<strong>marked_coord</strong> = array([[ 3.5],
+       [ 0.9]])<br>
+<strong>marked_veloc</strong> = array([[ 0.],
+       [ 0.]])<br>
+<strong>n_e</strong> = 1.0<br>
+<strong>neutral</strong> = True<br>
+<strong>notification</strong> = False<br>
+<strong>num_node</strong> = 1.0<br>
+<strong>num_part</strong> = 20.0<br>
+<strong>num_steps</strong> = 250<br>
+<strong>origin_x</strong> = 0.0<br>
+<strong>origin_y</strong> = -1.0<br>
+<strong>out_folder</strong> = '../scratch_ewok/test02/'<br>
+<strong>pillow_size</strong> = 20<br>
+<strong>profiles</strong> = ['cosinus', 'flat', 'gauss']<br>
+<strong>pump_unstable</strong> = False<br>
+<strong>ramp_length</strong> = 40.0<br>
+<strong>right</strong> = 5.0<br>
+<strong>seed_angle</strong> = 0.0<br>
+<strong>seed_delay</strong> = 0<br>
+<strong>seed_duration</strong> = 250<br>
+<strong>seed_profile</strong> = 'cosinus'<br>
+<strong>seed_time</strong> = 250<br>
+<strong>seed_width</strong> = 1.0<br>
+<strong>simulation_time</strong> = 10.0<br>
+<strong>snapshots_interval</strong> = 25<br>
+<strong>steps</strong> = 25.0<br>
+<strong>stepwise_step</strong> = 2<br>
+<strong>text_out1</strong> = '**Simulation is launched on %s  nodes. <font color="#c040c0">\n</font>You have...ad on %s x %s grid. <font color="#c040c0">\n</font>Initializing ewoks objects.<font color="#c040c0">\n</font>'<br>
+<strong>text_out2</strong> = '**Cleaning the output folders<font color="#c040c0">\n</font>'<br>
+<strong>text_out3</strong> = '**All initial data is calculated. Starting the main simulation loop..<font color="#c040c0">\n</font>'<br>
+<strong>text_out4</strong> = '** %s percent is done. output files are written.<font color="#c040c0">\n</font>'<br>
+<strong>text_out5</strong> = '**Im done in %s minutes. Bye !<font color="#c040c0">\n</font>'<br>
+<strong>top</strong> = 3.04<br>
+<strong>tracking</strong> = False<br>
+<strong>user_email</strong> = ['ewok@dark_side.ndr']<br>
+<strong>v_x</strong> = 1e-08<br>
+<strong>v_y</strong> = 1e-08<br>
+<strong>w_bonus</strong> = 0.0<br>
+<strong>w_seed</strong> = 1.0<br>
+<strong>x_particle_absorb</strong> = True<br>
+<strong>x_period</strong> = False<br>
+<strong>y_particle_absorb</strong> = True<br>
+<strong>y_period</strong> = True</td></tr></table>
+</body></html>

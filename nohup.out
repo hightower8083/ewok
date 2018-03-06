@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "./ewok_launch.py", line 6, in <module>
+    from ewoks import *
+  File "./moduls/ewoks.py", line 185
+    self.particles[:,2:5] = dummy_particles[:,2:5]
+    ^
+IndentationError: unexpected indent
+Traceback (most recent call last):
+  File "./ewok_launch.py", line 6, in <module>
+    from ewoks import *
+  File "./moduls/ewoks.py", line 185
+    self.particles[:,2:5] = dummy_particles[:,2:5]
+    ^
+IndentationError: unexpected indent

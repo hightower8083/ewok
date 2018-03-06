@@ -1,0 +1,219 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module ewoks</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ewoks</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/igor/COED/ewok/moduls/ewoks.py">/home/igor/COED/ewok/moduls/ewoks.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="mpi4py.MPI.html">mpi4py.MPI</a><br>
+</td><td width="25%" valign=top><a href="fort_ewok.html">fort_ewok</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="density.html#density_rout">density.density_rout</a>(<a href="exchange.html#exchange">exchange.exchange</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ewoks.html#Ewoks">Ewoks</a>(<a href="exchange.html#exchange">exchange.exchange</a>, <a href="density.html#density_rout">density.density_rout</a>)
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="exchange.html#exchange">exchange.exchange</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="ewoks.html#Ewoks">Ewoks</a>(<a href="exchange.html#exchange">exchange.exchange</a>, <a href="density.html#density_rout">density.density_rout</a>)
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Ewoks">class <strong>Ewoks</strong></a>(<a href="exchange.html#exchange">exchange.exchange</a>, <a href="density.html#density_rout">density.density_rout</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="ewoks.html#Ewoks">Ewoks</a></dd>
+<dd><a href="exchange.html#exchange">exchange.exchange</a></dd>
+<dd><a href="density.html#density_rout">density.density_rout</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Ewoks-__init__"><strong>__init__</strong></a>(self, comm)</dt><dd><tt>creates&nbsp;the&nbsp;ewok&nbsp;object,&nbsp;which&nbsp;has:&nbsp;communicator,&nbsp;grid&nbsp;geometry&nbsp;data,&nbsp;empty&nbsp;arrays&nbsp;for&nbsp;potential,<br>
+parcticles&nbsp;phase&nbsp;coordinates,&nbsp;density&nbsp;data&nbsp;on&nbsp;grid,&nbsp;charge&nbsp;neutralization&nbsp;data&nbsp;and&nbsp;some&nbsp;utility&nbsp;data.</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-boundaries"><strong>boundaries</strong></a>(self, particles)</dt><dd><tt>sorts&nbsp;the&nbsp;particles&nbsp;for&nbsp;<a href="exchange.html#exchange">exchange</a>&nbsp;returning&nbsp;particles&nbsp;going&nbsp;to&nbsp;the&nbsp;left,&nbsp;right&nbsp;or&nbsp;staying.<br>
+accounts&nbsp;for&nbsp;*y_particle_absorb*&nbsp;option&nbsp;for&nbsp;absorb&nbsp;particle&nbsp;absorbtion&nbsp;or&nbsp;periodicity&nbsp;at&nbsp;bottom-top&nbsp;boundaries<br>
+calls&nbsp;Fortran&nbsp;subroutines&nbsp;via&nbsp;f2py&nbsp;interface&nbsp;generator</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-e_static_potent"><strong>e_static_potent</strong></a>(self)</dt><dd><tt>1)&nbsp;gathers&nbsp;the&nbsp;density&nbsp;from&nbsp;all&nbsp;<a href="#Ewoks">Ewoks</a>&nbsp;to&nbsp;the&nbsp;Cheif&nbsp;<br>
+2)&nbsp;calculates&nbsp;electrostatic&nbsp;potential&nbsp;solving&nbsp;Poisson&nbsp;equation&nbsp;by&nbsp;factorization&nbsp;of&nbsp;LU&nbsp;operator<br>
+3)&nbsp;divides&nbsp;and&nbsp;broadcasts&nbsp;electrostatic&nbsp;potential&nbsp;to&nbsp;<a href="#Ewoks">Ewoks</a></tt></dd></dl>
+
+<dl><dt><a name="Ewoks-get_geom"><strong>get_geom</strong></a>(self)</dt><dd><tt>creates&nbsp;the&nbsp;local&nbsp;ewok&nbsp;grid&nbsp;geometry&nbsp;and&nbsp;data&nbsp;according&nbsp;to&nbsp;communicator&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-leap_frog_motion"><strong>leap_frog_motion</strong></a>(self)</dt><dd><tt>calculates&nbsp;the&nbsp;initial&nbsp;Lorentz-factors&nbsp;of&nbsp;the&nbsp;particles,&nbsp;relativistic&nbsp;density&nbsp;(n_e/gamma)<br>
+and&nbsp;particle&nbsp;velocities&nbsp;on&nbsp;the&nbsp;first&nbsp;time&nbsp;half-step&nbsp;(leap-frog&nbsp;scheme).</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-motion"><strong>motion</strong></a>(self)</dt><dd><tt>1)&nbsp;calculates&nbsp;scattered&nbsp;and&nbsp;pump&nbsp;vector&nbsp;potentials&nbsp;and&nbsp;electrostatic&nbsp;potential&nbsp;to&nbsp;push&nbsp;the&nbsp;particles<br>
+2)&nbsp;applies&nbsp;sorting&nbsp;algorithms&nbsp;for&nbsp;left-right-bottom-top&nbsp;boundaries<br>
+3)&nbsp;exchanges&nbsp;the&nbsp;particles&nbsp;between&nbsp;<a href="#Ewoks">Ewoks</a><br>
+4)&nbsp;calculates&nbsp;relativistic&nbsp;density&nbsp;(n_e/gamma)<br>
+1,2,4&nbsp;steps&nbsp;are&nbsp;using&nbsp;Fortran&nbsp;subroutines&nbsp;via&nbsp;f2py&nbsp;interface&nbsp;generator.</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-motion_proton"><strong>motion_proton</strong></a>(self)</dt><dd><tt>push&nbsp;the&nbsp;ions&nbsp;(same&nbsp;as&nbsp;electrons)</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-particle_init"><strong>particle_init</strong></a>(self)</dt><dd><tt>creates&nbsp;initial&nbsp;phase&nbsp;coordinates,&nbsp;IDs&nbsp;of&nbsp;the&nbsp;particles&nbsp;and&nbsp;tracked&nbsp;particle</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-potential_calcul"><strong>potential_calcul</strong></a>(self, time)</dt><dd><tt>1)&nbsp;solves&nbsp;the&nbsp;e.m.&nbsp;paraxial&nbsp;equation&nbsp;using&nbsp;explict-implicit&nbsp;hybrid&nbsp;1-st&nbsp;order&nbsp;scheme&nbsp;for&nbsp;(x,t)&nbsp;and&nbsp;FFT&nbsp;for&nbsp;y&nbsp;variables<br>
+2)&nbsp;exchanges&nbsp;the&nbsp;boundary&nbsp;data&nbsp;between&nbsp;<a href="#Ewoks">Ewoks</a><br>
+3)&nbsp;injects&nbsp;the&nbsp;seed&nbsp;wave<br>
+4)&nbsp;defines&nbsp;e.m.&nbsp;wave&nbsp;absorbtion&nbsp;on&nbsp;bottom-top&nbsp;boundaries&nbsp;for&nbsp;non-periodic&nbsp;case&nbsp;*y_period=False*<br>
+1&nbsp;can&nbsp;be&nbsp;done&nbsp;either&nbsp;by&nbsp;NumPy&nbsp;or&nbsp;using&nbsp;Fortran&nbsp;subroutines&nbsp;via&nbsp;f2py&nbsp;interface&nbsp;generator.</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-proton_init"><strong>proton_init</strong></a>(self)</dt><dd><tt>initial&nbsp;distribution&nbsp;of&nbsp;protons&nbsp;is&nbsp;a&nbsp;copy&nbsp;of&nbsp;electrons</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-tansverse_env"><strong>tansverse_env</strong></a>(self)</dt><dd><tt>creates&nbsp;the&nbsp;envelop&nbsp;for&nbsp;e.m.&nbsp;field&nbsp;absorbtion&nbsp;at&nbsp;bottom-top&nbsp;boundaries&nbsp;for&nbsp;*y_period=False*</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-wave_nums"><strong>wave_nums</strong></a>(self)</dt><dd><tt>creates&nbsp;wave&nbsp;number&nbsp;axis&nbsp;for&nbsp;FFT&nbsp;methods</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="exchange.html#exchange">exchange.exchange</a>:<br>
+<dl><dt><a name="Ewoks-dens_exchange"><strong>dens_exchange</strong></a>(self, dens_2right, dens_2left)</dt><dd><tt>exchanges&nbsp;data&nbsp;of&nbsp;additional&nbsp;cells&nbsp;at&nbsp;boundaries,&nbsp;used&nbsp;for&nbsp;the&nbsp;3rd&nbsp;order&nbsp;interpolation&nbsp;(blocking)</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-part_exchange"><strong>part_exchange</strong></a>(self, part_2left, part_2right)</dt><dd><tt><a href="exchange.html#exchange">exchange</a>&nbsp;of&nbsp;the&nbsp;particles&nbsp;between&nbsp;<a href="#Ewoks">Ewoks</a>&nbsp;(blocking)</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-potent_exchange"><strong>potent_exchange</strong></a>(self)</dt><dd><tt><a href="exchange.html#exchange">exchange</a>&nbsp;of&nbsp;e.m.&nbsp;potential&nbsp;between&nbsp;<a href="#Ewoks">Ewoks</a>&nbsp;(blocking)<br>
+accounts&nbsp;for&nbsp;*x_period*&nbsp;condition&nbsp;for&nbsp;e.m.&nbsp;field</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="density.html#density_rout">density.density_rout</a>:<br>
+<dl><dt><a name="Ewoks-dens2gamma_calcul"><strong>dens2gamma_calcul</strong></a>(self)</dt><dd><tt>1)&nbsp;calculates&nbsp;the&nbsp;'relativistic'&nbsp;particles&nbsp;density&nbsp;(thanx&nbsp;to&nbsp;Rachel&nbsp;for&nbsp;the&nbsp;scheme)<br>
+2)&nbsp;calls&nbsp;routine&nbsp;to&nbsp;<a href="exchange.html#exchange">exchange</a>&nbsp;additional&nbsp;cells&nbsp;at&nbsp;boundaries<br>
+uses&nbsp;Fortran&nbsp;subroutines&nbsp;via&nbsp;f2py&nbsp;interface&nbsp;generator</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-dens_calcul"><strong>dens_calcul</strong></a>(self)</dt><dd><tt>1)&nbsp;calculates&nbsp;the&nbsp;particles&nbsp;density&nbsp;(thanx&nbsp;to&nbsp;Rachel&nbsp;for&nbsp;the&nbsp;sub-routine)<br>
+2)&nbsp;calls&nbsp;routine&nbsp;to&nbsp;<a href="exchange.html#exchange">exchange</a>&nbsp;additional&nbsp;cells&nbsp;at&nbsp;boundaries<br>
+uses&nbsp;Fortran&nbsp;subroutines&nbsp;via&nbsp;f2py&nbsp;interface&nbsp;generator</tt></dd></dl>
+
+<dl><dt><a name="Ewoks-dens_ion_calcul"><strong>dens_ion_calcul</strong></a>(self)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-system"><strong>system</strong></a>(...)</dt><dd><tt><a href="#-system">system</a>(command)&nbsp;-&gt;&nbsp;exit_status<br>
+&nbsp;<br>
+Execute&nbsp;the&nbsp;command&nbsp;(a&nbsp;string)&nbsp;in&nbsp;a&nbsp;subshell.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>EDFx</strong> = 'thermal'<br>
+<strong>EDFy</strong> = 'thermal'<br>
+<strong>M_p</strong> = 1836.1253211<br>
+<strong>N_max</strong> = 377500<br>
+<strong>N_part_full</strong> = 250000<br>
+<strong>Nstat</strong> = 20<br>
+<strong>a0</strong> = 0.0<br>
+<strong>a_bonus</strong> = 0.0<br>
+<strong>a_seed</strong> = 1.8999999999999999<br>
+<strong>asym</strong> = False<br>
+<strong>beam_right</strong> = 10.0<br>
+<strong>beam_top</strong> = 1.0<br>
+<strong>beta</strong> = 0.0<br>
+<strong>bins_x</strong> = 125<br>
+<strong>bins_y</strong> = 151<br>
+<strong>bottom</strong> = -3.0<br>
+<strong>circ</strong> = &lt;numpy.lib.function_base.vectorize object&gt;<br>
+<strong>courant</strong> = 1.0<br>
+<strong>delta_ampl</strong> = 0.45<br>
+<strong>delta_freq</strong> = 0.01<br>
+<strong>density_profile</strong> = 'circle'<br>
+<strong>diag_dens</strong> = True<br>
+<strong>diag_field</strong> = True<br>
+<strong>diag_fld</strong> = 1.0<br>
+<strong>diag_phase</strong> = False<br>
+<strong>diag_phs</strong> = 0.0<br>
+<strong>dt</strong> = 0.040000000000000001<br>
+<strong>dx</strong> = 0.040000000000000001<br>
+<strong>dy</strong> = 0.040000000000000001<br>
+<strong>e_charge</strong> = -1.0<br>
+<strong>e_static</strong> = True<br>
+<strong>exp_src</strong> = &lt;numpy.lib.function_base.vectorize object&gt;<br>
+<strong>gamma_ext</strong> = 1.0<br>
+<strong>injection_time</strong> = 0<br>
+<strong>l_x</strong> = 10.0<br>
+<strong>l_y</strong> = 2.0<br>
+<strong>lattice_modif</strong> = False<br>
+<strong>left</strong> = 0.0<br>
+<strong>markID</strong> = 377503<br>
+<strong>marked_coord</strong> = array([[ 3.5],
+       [ 0.9]])<br>
+<strong>marked_veloc</strong> = array([[ 0.],
+       [ 0.]])<br>
+<strong>n_e</strong> = 1.0<br>
+<strong>neutral</strong> = True<br>
+<strong>notification</strong> = False<br>
+<strong>num_node</strong> = 1.0<br>
+<strong>num_part</strong> = 20.0<br>
+<strong>num_steps</strong> = 250<br>
+<strong>origin_x</strong> = 0.0<br>
+<strong>origin_y</strong> = -1.0<br>
+<strong>out_folder</strong> = '../scratch_ewok/test02/'<br>
+<strong>pillow_size</strong> = 20<br>
+<strong>profiles</strong> = ['cosinus', 'flat', 'gauss']<br>
+<strong>pump_unstable</strong> = False<br>
+<strong>ramp_length</strong> = 40.0<br>
+<strong>ramp_lin</strong> = &lt;numpy.lib.function_base.vectorize object&gt;<br>
+<strong>right</strong> = 5.0<br>
+<strong>seed_angle</strong> = 0.0<br>
+<strong>seed_delay</strong> = 0<br>
+<strong>seed_duration</strong> = 250<br>
+<strong>seed_profile</strong> = 'cosinus'<br>
+<strong>seed_time</strong> = 250<br>
+<strong>seed_width</strong> = 1.0<br>
+<strong>simulation_time</strong> = 10.0<br>
+<strong>snapshots_interval</strong> = 25<br>
+<strong>steps</strong> = 25.0<br>
+<strong>stepwise_step</strong> = 2<br>
+<strong>text_out1</strong> = '**Simulation is launched on %s  nodes. <font color="#c040c0">\n</font>You have...ad on %s x %s grid. <font color="#c040c0">\n</font>Initializing ewoks objects.<font color="#c040c0">\n</font>'<br>
+<strong>text_out2</strong> = '**Cleaning the output folders<font color="#c040c0">\n</font>'<br>
+<strong>text_out3</strong> = '**All initial data is calculated. Starting the main simulation loop..<font color="#c040c0">\n</font>'<br>
+<strong>text_out4</strong> = '** %s percent is done. output files are written.<font color="#c040c0">\n</font>'<br>
+<strong>text_out5</strong> = '**Im done in %s minutes. Bye !<font color="#c040c0">\n</font>'<br>
+<strong>top</strong> = 3.04<br>
+<strong>tracking</strong> = False<br>
+<strong>user_email</strong> = ['ewok@dark_side.ndr']<br>
+<strong>v_x</strong> = 1e-08<br>
+<strong>v_y</strong> = 1e-08<br>
+<strong>w_bonus</strong> = 0.0<br>
+<strong>w_seed</strong> = 1.0<br>
+<strong>x_particle_absorb</strong> = True<br>
+<strong>x_period</strong> = False<br>
+<strong>y_particle_absorb</strong> = True<br>
+<strong>y_period</strong> = True</td></tr></table>
+</body></html>

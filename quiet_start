@@ -1,0 +1,8 @@
+#! /usr/bin/env python
+from os import system
+from input import num_node
+
+system('rm -f nohup.out')
+nodes2launch =  str(int(num_node))
+
+system('nohup mpiexec -n '+nodes2launch+'python ./ewok_launch.py < /dev/null &')
