@@ -23,7 +23,7 @@ Sweet feature of EWOK is a GUI written with Tkinter package, which allows to set
   - idns (ion density)
   - fld (electromagnetic potential)
   - estat (electrostatic potential)
-  - phs (analisys of particles phase distributions)
+  - phs (analysis of particles phase distributions)
   
-EWOK is not to be used for any scientific research, and it does numerous simplifications of the PIC method.
+EWOK is not to be used for any scientific research, and it does numerous simplifications of the PIC method and may contain bugs.
 
