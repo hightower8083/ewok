@@ -1,2 +1,2 @@
-rm *.pyc *.so
+rm -f *.pyc *.so
 f2py -c --opt='-O3' -m fort_ewok ./fortran_subs/fort_ewok.f90

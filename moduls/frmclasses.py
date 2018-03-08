@@ -1,9 +1,13 @@
-from tkinter import *
 import numpy as np
 from os import system
-from tkinter.filedialog import askopenfilename
+import sys
 
-#from tkFileDialog import askopenfilename
+if sys.version_info[0]>2:
+    from tkinter import *
+    from tkinter.filedialog import askopenfilename
+else:
+    from Tkinter import *
+    from tkFileDialog import askopenfilename
 
 def readinput(input_obj,main_frm):
     path = askopenfilename()

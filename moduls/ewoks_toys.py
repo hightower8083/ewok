@@ -14,9 +14,10 @@ text_out5 = "**Im done in %s minutes. Bye !\n"
 exp_src = np.vectorize( lambda x, y, t_step : np.exp(-2*np.pi*1j*((t_step-seed_delay)*dt-x)))
 
 class toys:
-    def __init__(self,ewok):
+    def __init__(self, ewok):
         '''gives Ewok his toys for signal and pump creation, diagnostics and messaging'''
         self.x_ij, self.y_ij = ewok.x_ij, ewok.y_ij
+
         # preparing the optical lattice potential
         if lattice_modif:
             self.stat_pump_potent = -a0*(1./2.)*1j*np.exp(-2j*np.pi*((beta+1)*self.x_ij + self.y_ij/gamma_ext)) \
@@ -24,9 +25,11 @@ class toys:
         else:
             self.stat_pump_potent = 2*a0*np.sin(2*np.pi*self.y_ij/gamma_ext)\
                 * np.exp(-1j*(beta+1)*self.x_ij*2*np.pi)
+
         # preparing the seed
         self.get_seed_profile()
         self.seed_rotation()
+
         # preparing the working folders, writing message and starting the timer
         if ewok.rank == 0:
             os.system('./clear.py')
@@ -75,7 +78,7 @@ class toys:
         elif seed_profile == 'flat':
             temporal = 1.
 
-        seed =  temporal*a_seed*self.profile*self.rotator \
+        seed =  temporal * a_seed * self.profile * self.rotator \
             * np.exp(-2*np.pi*1j*(w_seed - 1)*(time-seed_delay)*dt - np.pi*1j/2.)
 
         return fft(seed)
@@ -128,17 +131,19 @@ class toys:
         while len(tt) < 4: tt = '0'+tt
 
         if diag_phase:
-            phase_file = open(self.phase_folder+'phs_dat_'+me+'_'+tt ,mode='w')
+            phase_file = self.phase_folder+'phs_dat_'+me+'_'+tt
             np.save(phase_file, ewok.particles )
-            phase_file.close()
             if e_static and neutral:
-                phase_file = open(self.ion_phase_folder + 'iphs_dat_'+me+'_'+tt ,mode='w')
+                phase_file = self.ion_phase_folder + 'iphs_dat_'+me+'_'+tt
                 np.save(phase_file,ewok.particles_p)
-                phase_file.close()
 
         if diag_dens:
             ewok.dens_calcul()
             data_pass = np.array(ewok.data, dtype='d')
+
+#            ewok.dens2gamma_calcul()
+#            data_pass = np.array(ewok.dens2gamma, dtype='d')
+
             if ewok.rank==0:
                 data_tot = np.empty(( (ewok.bins[0]+1)*ewok.size, ewok.bins[1]+1 ),dtype='d')
             else:
@@ -147,10 +152,9 @@ class toys:
             ewok.comm.Gather([data_pass,MPI.DOUBLE],[data_tot,MPI.DOUBLE], root=0)
 
             if ewok.rank == 0:
-                #data_tot = np.delete(data_tot,ewok.to_kick,0)
-                dens_file = open(self.dens_folder+'dens_dat_'+tt,mode='w')
+                data_tot = np.delete(data_tot,ewok.to_kick,0)
+                dens_file = self.dens_folder+'dens_dat_'+tt
                 np.save(dens_file, data_tot)
-                dens_file.close()
 
         if diag_field:
             potent_pass = np.array(np.real(ewok.potent_em*exp_src(ewok.x_ij, ewok.y_ij,time)),dtype='d')
@@ -163,14 +167,12 @@ class toys:
 
             if ewok.rank == 0:
                 data_tot = np.delete(data_tot,ewok.to_kick,0)
-                vect_potent_file = open(self.fld_folder+'fld_dat_'+tt,mode='w')
+                vect_potent_file = self.fld_folder+'fld_dat_'+tt
                 np.save(vect_potent_file, data_tot)
-                vect_potent_file.close()
 
         if e_static and diag_field and ewok.rank == 0:
-            stat_potent_file = open(self.stat_potent_folder+'stat_potent_'+tt, mode='w')
+            stat_potent_file = self.stat_potent_folder+'stat_potent_'+tt
             np.save(stat_potent_file,np.real(ewok.stat_potents))
-            stat_potent_file.close()
 
         if e_static and neutral and diag_dens:
             data_pass = np.array(ewok.dens_p,dtype='d')
@@ -184,7 +186,7 @@ class toys:
 
             if ewok.rank == 0:
                 data_tot = np.delete(data_tot,ewok.to_kick,0)
-                dens_file = open(self.ion_folder+'idens_dat_'+tt,mode='w')
+                dens_file = self.ion_folder+'idens_dat_'+tt
                 np.save(dens_file, data_tot)
 
     def track_out(self,ewok):
@@ -212,7 +214,7 @@ class toys:
         elif seed_profile == 'gauss':
             self.profile = np.exp(-relat_width**2)
         else:
-            print 'seed profile is not understood'
+            print( 'seed profile is not understood')
 
 
     def start_msg(self,ewok):

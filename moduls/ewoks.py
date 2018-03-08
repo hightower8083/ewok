@@ -6,12 +6,11 @@ from scipy.fftpack import fft, ifft
 
 import fort_ewok
 from ewoks_toys import *
-from exchange import *
 from density import *
 from poissoner import *
 from dens_prof import *
 
-class Ewoks(exchange,density_rout):
+class Ewoks(density_rout):
     def __init__(self,comm):
         ''' creates the ewok object, which has: communicator, grid geometry data, empty arrays for potential,
 		    parcticles phase coordinates, density data on grid, charge neutralization data and some utility data.
@@ -51,7 +50,7 @@ class Ewoks(exchange,density_rout):
         self.potent_em  = np.zeros(self.bins+1,dtype='complex')		#
         self.potent_em_fft = np.zeros(self.bins+1,dtype='complex')	#
         self.potent_next = np.zeros(self.bins[1]+1,dtype='complex')	#
-        self.pump_potent_stat = self.toy.stat_pump_potent		# reassigning static lattice potential
+        self.pump_potent_stat = self.toy.stat_pump_potent   		# reassigning static lattice potential
 
         self.Npart_absorbed = 0
 
@@ -173,8 +172,8 @@ class Ewoks(exchange,density_rout):
         self.e_static_potent()
 
         # initial optical lattice potential
-        if self.particles.shape[0]!=0:
-            self.pump = self.toy.pump_func(0)
+#        if self.particles.shape[0]!=0:
+        self.pump = self.toy.pump_func(0)
 
         # velocity at half-step
         dummy_particles = fort_ewok.push_them_relativ( \
@@ -182,8 +181,8 @@ class Ewoks(exchange,density_rout):
             self.particles[:,:5] ,self.left_p, self.bottom_p, \
             self.x_ij, self.y_ij, dx, dy, 0.5*dt)
 
-            self.particles[:,2:5] = dummy_particles[:,2:5]
-            self.particles[:,:2] = self.particles[:,:2] + dt*self.particles[:,2:4]/self.particles[:,[4]]
+        self.particles[:,2:5] = dummy_particles[:,2:5]
+        self.particles[:,:2] = self.particles[:,:2] + dt*self.particles[:,2:4]/self.particles[:,[4]]
 
         part_2left, part_2right, self.particles = self.boundaries(self.particles)
         part_from_left, part_from_right = self.part_exchange(part_2left, part_2right)

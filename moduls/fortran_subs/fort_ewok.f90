@@ -207,8 +207,8 @@ end subroutine
 !!!! finds and sorts migrating and staying particles !!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 subroutine bound_and_migration(particles, left_p, right_p, bottom_p, & 
-	top_p, leng ,  part_2left, part_2right, part_2stay, Npart_2left, & 
-	Npart_2right, Npart_2stay)
+    top_p, leng ,  part_2left, part_2right, part_2stay, Npart_2left, & 
+    Npart_2right, Npart_2stay)
 
 implicit none
 
