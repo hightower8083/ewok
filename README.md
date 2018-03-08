@@ -8,7 +8,7 @@ so-called [optical lattice Raman XFEL](https://doi.org/10.1103/PhysRevLett.109.2
 
 Sweet feature of EWOK is a GUI written with Tkinter package, which allows to setup and launch the simulation.
 
-<p align="center"><img src="https://github.com/hightower8083/ewok/blob/master/docs/gui-snap.png.png" width="500"/></p>
+<p align="center"><img src="https://github.com/hightower8083/ewok/blob/master/docs/gui-snap.png" width="500"/></p>
 
 #### To use:
 - start ewokGUI
