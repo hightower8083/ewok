@@ -22,7 +22,9 @@ Sweet feature of EWOK is a GUI written with Tkinter package, which allows to set
   - idns (ion density)
   - fld (electromagnetic potential)
   - estat (electrostatic potential)
-  - phs (analysis of particles phase distributions)
+  - phs (analysis of particles phase distributions: choices are x,y,vx,vy,gamma)
+  - RETURN key to exit
+  - `input time step` and `input limits` fields may be left blank
   
 EWOK is not to be used for any scientific research, and its Maxwell is very specific for the case considered in [<cite>[1]</cite>], and it does numerous simplifications of the PIC method (it alo may contain new or old bugs). Some documetation can be found in `./docs/`
 
