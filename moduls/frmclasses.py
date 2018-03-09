@@ -85,7 +85,7 @@ class input_frames:
         self.save_params()
         system('rm -f nohup.out')
         nodes2launch =  str(int(float(self.num_node)))
-        system('nohup mpirun -np '+nodes2launch+'python ./ewok_launch.py < /dev/null &')
+        system('nohup mpirun -np '+nodes2launch+' python ./ewok_launch.py < /dev/null &')
 
     def default_input(self):
         self.pump_amp,self.inj_time,self.seed_amp,\
