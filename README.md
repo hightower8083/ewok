@@ -1,10 +1,9 @@
 # ewok
 a simple 2D Particle-In-Cell code
 
-This software was my first essay in ptyhon-fortran-mpi development.
+This software was my first essay in python-fortran-mpi development.
 
-In 2011 the code was succefully used to model amplification of the radiation scattered by an electron beam in the optical lattice --
-so-called [optical lattice Raman XFEL](https://doi.org/10.1103/PhysRevLett.109.244802), which was simulated using the Lorentz boosted frame.
+In 2011 the code was succefully used to model amplification of the radiation scattered by an electron beam in the optical lattice -- so-called optical lattice Raman XFEL [<cite>[1]</cite>], which was simulated using the Lorentz boosted frame.
 
 Sweet feature of EWOK is a GUI written with Tkinter package, which allows to setup and launch the simulation.
 
@@ -25,5 +24,8 @@ Sweet feature of EWOK is a GUI written with Tkinter package, which allows to set
   - estat (electrostatic potential)
   - phs (analysis of particles phase distributions)
   
-EWOK is not to be used for any scientific research, and it does numerous simplifications of the PIC method and may contain bugs.
+EWOK is not to be used for any scientific research, and its Maxwell is very specific for the case considered in [<cite>[1]</cite>], and it does numerous simplifications of the PIC method (it alo may contain new or old bugs). Some documetation can be found in `./docs/`
 
+\[[1]\] I. A. Andriyash, E. d’Humières, V. T. Tikhonchuk, and Ph. Balcou Phys. Rev. Lett. 109, 244802
+
+[1]:https://doi.org/10.1103/PhysRevLett.109.244802
